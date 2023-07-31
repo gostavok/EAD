@@ -4,9 +4,11 @@ import com.ead.course.models.LessonModel;
 import com.ead.course.repositories.LessonRepository;
 import com.ead.course.services.LessonService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -32,8 +34,8 @@ public class LessonServiceImpl implements LessonService {
     }
 
     @Override
-    public List<LessonModel> findAllByModule(UUID moduleId) {
-        return lessonRepository.findAllLessonsIntoModule(moduleId);
+    public Page<LessonModel> findAll(Specification<LessonModel> spec, Pageable pageable) {
+        return lessonRepository.findAll(spec, pageable);
     }
 
 }
