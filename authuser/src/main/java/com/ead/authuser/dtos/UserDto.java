@@ -22,7 +22,7 @@ public class UserDto {
 
     @NotBlank(groups = UserView.RegistrationPost.class)
     @Size(min = 4, max = 50, groups = UserView.RegistrationPost.class)
-    @UsernameConstraint(group = UserView.RegistrationPost.class)
+    @UsernameConstraint(groups = UserView.RegistrationPost.class)
     @JsonView(UserView.RegistrationPost.class)
     private String username;
 
