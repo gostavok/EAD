@@ -63,7 +63,7 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found.");
         } else {
             userService.delete(userModelOptional.get());
-            log.debug("DELETE deleteUser userModel saved {}", userId);
+            log.debug("DELETE deleteUser userId saved {}", userId);
             log.info("User deleted successfully userId {}", userId);
             return ResponseEntity.status(HttpStatus.OK).body("User deleted successfully.");
         }
@@ -84,7 +84,7 @@ public class UserController {
             userModel.setLastUpdateDate(LocalDateTime.now(ZoneId.of("UTC")));
 
             userService.save(userModel);
-            log.debug("PUT updateUser userModel saved {}", userModel.toString());
+            log.debug("PUT updateUser userId saved {}", userModel.getUserId());
             log.info("User updated successfully userId {}", userModel.getUserId());
             return ResponseEntity.status(HttpStatus.OK).body(userModel);
         }
