@@ -18,3 +18,8 @@ spring:
   output:
     ansi:
       enabled: Always
+
+ead:
+  api:
+    url:
+      authuser: 'http://localhost:8087'

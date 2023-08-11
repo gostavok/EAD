@@ -10,4 +10,5 @@ import java.util.UUID;
 @Repository
 public interface CourseUserRepository extends JpaRepository<CourseUserModel, UUID> {
 
+    boolean existsByCourseAndUserId(UUID courseId, UUID userId);
 }
