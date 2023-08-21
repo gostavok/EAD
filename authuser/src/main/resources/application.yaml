@@ -22,6 +22,10 @@ spring:
   output:
     ansi:
       enabled: Always
+  rabbitmq:
+    port: 15672
+    username: admin
+    password: 123456
 
 ead:
   api:
