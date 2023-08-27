@@ -23,7 +23,7 @@ spring:
     ansi:
       enabled: Always
   rabbitmq:
-    port: 15672
+    port: 5672
     username: admin
     password: 123456
 
@@ -31,6 +31,14 @@ ead:
   api:
     url:
       authuser: 'http://ead-authuser-service/ead-authuser'
+  broker:
+    exchange:
+      userEvent: ead.userevent
+    queue:
+      userEventQueue:
+        name: ead.userevent.ms.course
+
+
 
 eureka:
   client:

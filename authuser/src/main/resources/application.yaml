@@ -23,7 +23,7 @@ spring:
     ansi:
       enabled: Always
   rabbitmq:
-    port: 15672
+    port: 5672
     username: admin
     password: 123456
 
