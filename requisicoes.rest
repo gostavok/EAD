@@ -12,7 +12,7 @@ Content-Type: application/json
 }
 ###
 
-GET http://localhost:8081/ead-authuser/users
+GET http://localhost:8087/ead-authuser/users
 ###
 
 GET http://localhost:8087/users/cde0dcab-79ac-4a1c-8cf8-821fe977ae7d
@@ -59,3 +59,7 @@ Content-Type: application/json
 ###
 
 GET http://localhost:8888/application/main
+
+###
+
+GET http://localhost:8888/ead-authuser-service/main
