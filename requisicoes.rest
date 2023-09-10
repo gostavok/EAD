@@ -1,0 +1,61 @@
+POST http://localhost:8081/ead-authuser/auth/signup
+Content-Type: application/json
+
+{
+    "username": "gustavo",
+    "email": "gustavo@gmail.com",
+    "password": 123456,
+    "fullName": "Gustavo Teste",
+    "phoneNumber": "123456789",
+    "cpf": "502.551.600-54",
+    "imageUrl": "https://www.4devs.com.br/gerador_de_cpf"
+}
+###
+
+GET http://localhost:8081/ead-authuser/users
+###
+
+GET http://localhost:8087/users/cde0dcab-79ac-4a1c-8cf8-821fe977ae7d
+###
+
+DELETE http://localhost:8081/ead-authuser/users/efecf0a1-1e91-4ef9-93e7-a1ad1eed6157
+###
+
+PUT http://localhost:8081/ead-authuser/users/6aaf7d7e-56e3-4c1a-92e4-146b216881ab
+Content-Type: application/json
+
+{
+    "fullName": "Gustavo Teste PUT",
+    "phoneNumber": "23454312",
+    "cpf": "502.551.600-54"
+}
+###
+
+PUT http://localhost:8087/users/cde0dcab-79ac-4a1c-8cf8-821fe977ae7d/password
+Content-Type: application/json
+
+{
+    "oldPassword": "123456221",
+    "password": "123456221"
+}
+###
+
+PUT http://localhost:8087/users/efecf0a1-1e91-4ef9-93e7-a1ad1eed6157/image
+Content-Type: application/json
+
+{
+    "imageUrl": "123456221"
+}
+
+###
+
+POST http://localhost:8081/ead-authuser/instructors/subscription
+Content-Type: application/json
+
+{
+    "userId": "6aaf7d7e-56e3-4c1a-92e4-146b216881ab"
+}
+
+###
+
+GET http://localhost:8888/application/main
