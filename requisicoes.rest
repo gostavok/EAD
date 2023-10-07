@@ -73,3 +73,7 @@ GET http://localhost:8087/ead-authuser/refreshscope
 
 POST http://localhost:8087/ead-authuser/actuator/refresh
 Content-Type: application/json
+
+###
+
+GET http://localhost:8888/ead-course-service/main
