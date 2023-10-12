@@ -12,6 +12,9 @@ spring:
           default-label: main
 
 ead:
+  configServer:
+    username: configserver
+    password: 'ead123cs'
   serviceRegistry:
     username: serviceregistry
     password: 'ead123sr'
