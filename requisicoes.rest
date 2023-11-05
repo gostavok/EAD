@@ -13,6 +13,20 @@ Content-Type: application/json
 ###
 
 GET http://localhost:8087/ead-authuser/users
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJndXN0YXZvIiwiaWF0IjoxNjk4NjIxNDE4LCJleHAiOjE2OTg2MzU4MTh9.Kw6nrpyck5XkoL_ZrxM_QZgu1sn6QvzB6IctNOD1ANxrxuLqdoyIXc8O9CxXU3FS9OyheSeo8Vli8NzClApKrQ
+
+
+
+###
+
+POST http://localhost:8087/ead-authuser/auth/login 
+Content-Type: application/json
+
+{
+    "username": "gustavo",
+    "password": "123456"
+}
+
 ###
 
 GET http://localhost:8087/users/cde0dcab-79ac-4a1c-8cf8-821fe977ae7d
