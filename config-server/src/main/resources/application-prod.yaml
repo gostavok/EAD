@@ -1,0 +1,28 @@
+server:
+  port: ${PORT}
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/gostavok/EAD
+          default-label: main
+          username: ${GIT_USERNAME}
+          password: ${GIT_PASSWORD}
+
+encrypt:
+  key: z%C*FJaNdRgUkXp2s5u8x/A?D(G+KbPeShVmYq3t6w9y$B&E)H@McQfTjWnZr4u
+
+ead:
+  configServer:
+    username: ${CONFIG_SERVER_USERNAME}
+    password: ${CONFIG_SERVER_PASSWORD}
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URL}
+  instance:
+    hostname: ${APP_DOMAIN_NAME}
+    non-secure-port: 80
