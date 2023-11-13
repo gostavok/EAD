@@ -4,20 +4,12 @@ server:
     context-path: '/ead-authuser/'
 
 spring:
-  config:
-    import: 'optional:configserver:'
-  profiles:
-    active: prod
-  cloud:
-    config:
-      discovery:
-        service-id: ead-config-server
-      username: configserver
-      password: 'ead123cs'
+  application:
+    name: ead-authuser-service
   datasource:
-    url: jdbc:postgresql://localhost:5432/ead-authuser
-    username: root
-    password: root
+    url: ${JDBC_DATABASE_URL}
+    username: ${JDBC_DATABASE_USERNAME}
+    password: ${JDBC_DATABASE_PASSWORD}
   jpa:
     hibernate:
       ddl-auto: update
@@ -27,13 +19,8 @@ spring:
     properties:
       hibernate:
         show_sql: true
-  output:
-    ansi:
-      enabled: Always
   rabbitmq:
-    port: 5672
-    username: admin
-    password: 123456
+    addresses: ${CLOUDAMQP_URL}
 
 ead:
   api:
@@ -43,12 +30,18 @@ ead:
     exchange:
       userEvent: ead.userevent
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: 'http://localhost:8761/eureka'
-  instance:
-    hostname: localhost
+authuser:
+  refreshscope:
+    name: UPDATE Gustavo
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - refresh
+          - health
+
 
 resilience4j:
   circuitbreaker:
