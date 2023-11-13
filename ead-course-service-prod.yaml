@@ -1,11 +1,11 @@
 server:
   port: ${PORT}
   servlet:
-    context-path: '/ead-authuser/'
+    context-path: '/ead-course/'
 
 spring:
   application:
-    name: ead-authuser-service
+    name: ead-course-service
   datasource:
     url: ${JDBC_DATABASE_URL}
     username: ${JDBC_DATABASE_USERNAME}
@@ -25,14 +25,13 @@ spring:
 ead:
   api:
     url:
-      course: 'http://ead-course-service/ead-course'
+      authuser: 'http://ead-authuser-service/ead-authuser'
   broker:
     exchange:
       userEvent: ead.userevent
-
-authuser:
-  refreshscope:
-    name: UPDATE Gustavo
+    queue:
+      userEventQueue:
+        name: ead.userevent.ms.course
 
 management:
   endpoints:
@@ -41,20 +40,3 @@ management:
         include:
           - refresh
           - health
-
-
-resilience4j:
-  circuitbreaker:
-    instances:
-      circuitbreakerInstance:
-        slidingWindowSize: 30
-        permittedNumberOfCallsInHalfOpenState: 2
-        slidingWindowType: TIME_BASED
-        minimumNumberOfCalls: 2
-        waitDurationInOpenState: 30s
-        failureRateThreshold: 80
-  retry:
-    instances:
-      retryInstance:
-        maxAttempts: 3
-        waitDuration: 5s
