@@ -7,7 +7,7 @@ spring:
   config:
     import: 'optional:configserver:'
   profiles:
-    active: prod
+    active: dev
   cloud:
     config:
       discovery:

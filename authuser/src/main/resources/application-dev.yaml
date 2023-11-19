@@ -1,5 +1,12 @@
 spring:
-  profiles:
-    active: dev
   application:
     name: ead-authuser-service
+
+ead:
+  serviceRegistry:
+    username: serviceregistry
+    password: 'ead123sr'
+
+authuser:
+  refreshscope:
+    name: Teste Update
