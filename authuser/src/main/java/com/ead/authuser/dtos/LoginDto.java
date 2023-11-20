@@ -1,9 +1,8 @@
 package com.ead.authuser.dtos;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 
-import javax.validation.constraints.NotBlank;
 
 @Data
 public class LoginDto {
