@@ -52,6 +52,9 @@ public class CourseValidator implements Validator {
             if (optUser.get().getUserType().equals(UserType.STUDENT)) {
                 errors.rejectValue("userInstructor", "UserInstructorError", "User must be INSTRUCTOR or ADMIN.");
             }
+            if (optUser.get().getUserType().equals(UserType.USER)) {
+                errors.rejectValue("userInstructor", "UserInstructorError", "User must be INSTRUCTOR or ADMIN.");
+            }
         } else {
             throw new AccessDeniedException("Forbidden");
         }
