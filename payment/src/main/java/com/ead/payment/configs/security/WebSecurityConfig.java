@@ -1,5 +1,6 @@
 package com.ead.payment.configs.security;
 
+import jakarta.servlet.DispatcherType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -56,6 +57,8 @@ public class WebSecurityConfig {
                 .authenticationEntryPoint(authenticationEntryPoint)
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and().authorizeHttpRequests()
+                .shouldFilterAllDispatcherTypes(true)
+                .dispatcherTypeMatchers(DispatcherType.ERROR).permitAll()
                 .anyRequest().authenticated().and().csrf().disable();
         http.addFilterBefore(authenticationJwtFilter(), UsernamePasswordAuthenticationFilter.class);
         return http.build();
