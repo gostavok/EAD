@@ -2,6 +2,7 @@ package com.ead.notification.controllers;
 
 
 import com.ead.notification.dtos.NotificationDto;
+import com.ead.notification.dtos.NotificationRecordDto;
 import com.ead.notification.models.NotificationModel;
 import com.ead.notification.services.NotificationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,13 +36,13 @@ public class UserNotificationController {
     @PutMapping("/users/{userId}/notifications/{notificationId}")
     public ResponseEntity<Object> updateNotification(@PathVariable(value = "userId") UUID userId,
                                                      @PathVariable(value = "notificationId") UUID notificationId,
-                                                     @RequestBody @Valid NotificationDto notificationDto){
+                                                     @RequestBody @Valid NotificationRecordDto notificationRecordDto){
         Optional<NotificationModel> notificationModelOptional = notificationService.findByNotificationIdAndUserId(notificationId, userId);
         if(notificationModelOptional.isEmpty()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Notification not found!");
         }
 
-        notificationModelOptional.get().setNotificationStatus(notificationDto.getNotificationStatus());
+        notificationModelOptional.get().setNotificationStatus(notificationRecordDto.notificationStatus());
         notificationService.saveNotification(notificationModelOptional.get());
         return ResponseEntity.status(HttpStatus.OK).body(notificationModelOptional.get());
     }
